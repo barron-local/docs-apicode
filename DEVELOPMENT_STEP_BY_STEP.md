@@ -45,13 +45,13 @@
 1. **Frontend:** พัฒนาด้วย Next.js (App Router, React 19) รองรับ Responsive UI, Authentication State, Role-based Rendering (Admin vs Readonly), การค้นหา/กรองข้อมูลแบบ Realtime, และการอัปโหลดไฟล์
 2. **Backend API:** พัฒนาด้วย Node.js + Express.js ให้บริการ RESTful API แบ่งสิทธิ์ด้วย JWT Token, ตรวจสอบ Payload, รองรับ Multipart File Upload ด้วย Multer และ Error Handling Middleware
 3. **Database:** MySQL ฐานข้อมูลหลัก มีฟังก์ชัน Auto Initialization (สร้างตาราง `users` และ `files` พร้อม Seed ข้อมูลเริ่มต้นทันทีที่รัน API)
-4. **Database GUI:** phpMyAdmin สำหรับจัดการฐานข้อมูลผ่าน Web Browser
-5. **Reverse Proxy:** Caddy Server จัดการ Routing โดเมนจำลอง 4 โดเมน พร้อมรองรับ SSL/HTTPS อัตโนมัติ (`local_certs`)
+4. **Database GUI:** phpMyAdmin สำหรับจัดการฐานข้อมูลผ่าน Web Browser (เข้าใช้งานโดยตรงผ่าน `http://localhost:8080` หรือผ่าน Reverse Proxy)
+5. **Reverse Proxy:** Caddy Server จัดการ Routing โดเมนจำลอง พร้อมรองรับ SSL/HTTPS อัตโนมัติ (`local_certs`)
 6. **DevOps & CI/CD:** GitLab Server (Self-hosted) + GitLab Runner ดำเนินการ Test -> Build -> Push -> Deploy อัตโนมัติ
 
 ```mermaid
 graph TD
-    User([ ผู้ใช้งาน / Browser ])
+    User([ ผู้ใช้งาน / Browser / Developer ])
     
     subgraph ReverseProxy ["Reverse Proxy Gateway (Port 80 / 443)"]
         Caddy[Caddy Web Server with Local SSL]
@@ -65,7 +65,7 @@ graph TD
 
     subgraph DatabaseLayer ["Database Layer"]
         MySQL[("MySQL Database :3306")]
-        PMA["phpMyAdmin :8080"]
+        PMA["phpMyAdmin Web UI :8080"]
     end
 
     subgraph DevOpsCI ["DevOps CI/CD Layer"]
@@ -77,6 +77,7 @@ graph TD
     User -->|https://backend.mydomain.lab| Caddy
     User -->|https://gitlab.mydomain.lab| Caddy
     User -->|https://registry.mydomain.lab| Caddy
+    User ==>|http://localhost:8080 เข้าดู DB ผ่านเว็บ| PMA
     
     Caddy --> Frontend
     Caddy --> Backend
@@ -85,7 +86,7 @@ graph TD
     Frontend -->|HTTP REST API + JWT Token| Backend
     Backend -->|CRUD Operations| MySQL
     Backend -->|Save Uploaded Files| UploadStorage
-    PMA -->|DB Admin Web UI| MySQL
+    PMA -->|DB Admin Management| MySQL
     Runner -->|Automated CI/CD Pipeline| GitLab
 ```
 
