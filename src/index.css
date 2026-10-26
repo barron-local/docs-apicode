@@ -693,10 +693,67 @@ body {
   transform: translateY(-2px);
 }
 
-/* Mobile responsive */
+/* Sidebar Overlay for Mobile */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 35;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Mermaid SVG Responsiveness */
+.mermaid-container {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.mermaid-container svg {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* ==========================================================================
+   Comprehensive Responsive Breakpoints (100% Mobile, Tablet, Desktop)
+   ========================================================================== */
+
+/* Large Tablets & Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 280px;
+  }
+
+  .main-wrapper {
+    margin-left: 280px;
+  }
+
+  .content-container {
+    padding: 32px 24px 60px;
+  }
+
+  .doc-hero {
+    padding: 28px 24px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .section-article {
+    padding: 28px 20px;
+  }
+}
+
+/* Tablets & Mobile Devices (max-width: 900px) */
 @media (max-width: 900px) {
   .sidebar {
+    width: 300px;
+    max-width: 85vw;
     transform: translateX(-100%);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
   }
 
   .sidebar.mobile-open {
@@ -708,18 +765,133 @@ body {
   }
 
   .menu-toggle-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .top-navbar {
     padding: 0 16px;
+    height: 58px;
+  }
+
+  .breadcrumbs {
+    font-size: 12px;
+    max-width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .navbar-actions {
+    gap: 8px;
+  }
+
+  .action-btn {
+    padding: 6px 10px;
+    font-size: 12px;
   }
 
   .content-container {
-    padding: 24px 16px 60px;
+    padding: 20px 16px 60px;
+  }
+
+  .doc-hero {
+    padding: 20px 18px;
+    border-radius: 10px;
+  }
+
+  .hero-title {
+    font-size: 20px;
+  }
+
+  .hero-desc {
+    font-size: 14px;
   }
 
   .section-article {
-    padding: 20px 16px;
+    padding: 20px 14px;
+    border-radius: 10px;
+  }
+
+  .doc-h1 {
+    font-size: 21px;
+    margin: 22px 0 14px;
+  }
+
+  .doc-h2 {
+    font-size: 18px;
+    margin: 18px 0 12px;
+  }
+
+  .doc-h3 {
+    font-size: 15px;
+  }
+
+  .code-pre {
+    padding: 12px 14px;
+    font-size: 12.5px;
+  }
+
+  .code-block-header {
+    padding: 6px 12px;
+  }
+
+  .copy-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+
+  .step-pagination {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .page-nav-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Small Smartphone Displays (max-width: 480px) */
+@media (max-width: 480px) {
+  .breadcrumbs {
+    display: none;
+  }
+
+  .action-btn span {
+    font-size: 11px;
+  }
+
+  .action-btn {
+    padding: 5px 8px;
+  }
+
+  .hero-title {
+    font-size: 18px;
+  }
+
+  .hero-desc {
+    font-size: 13px;
+  }
+
+  .doc-p {
+    font-size: 13.5px;
+  }
+
+  .doc-table th, .doc-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .mermaid-wrapper {
+    padding: 14px 10px;
+  }
+
+  .back-to-top {
+    bottom: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
   }
 }

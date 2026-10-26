@@ -128,6 +128,15 @@ export function App() {
 
   return (
     <div className="app-layout">
+      {/* Mobile Sidebar Overlay Backdrop */}
+      {mobileMenuOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Sidebar Navigation */}
       <aside className={`sidebar ${mobileMenuOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-header">
