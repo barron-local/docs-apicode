@@ -1,11 +1,43 @@
 import { useEffect, useRef } from 'react';
 import mermaid from 'mermaid';
 
+// Initialize Mermaid with a rich custom Dark Theme matching our Slate & Indigo aesthetic
 mermaid.initialize({
   startOnLoad: false,
-  theme: 'neutral',
+  theme: 'base',
   securityLevel: 'loose',
-  fontFamily: 'Inter, system-ui, sans-serif'
+  fontFamily: "'JetBrains Mono', 'Prompt', 'Inter', monospace",
+  themeVariables: {
+    darkMode: true,
+    background: '#0d111a',
+    primaryColor: '#1e2638',
+    primaryTextColor: '#f8fafc',
+    primaryBorderColor: '#38bdf8',
+    lineColor: '#60a5fa',
+    secondaryColor: '#1a2234',
+    secondaryTextColor: '#e2e8f0',
+    secondaryBorderColor: '#6366f1',
+    tertiaryColor: '#141a28',
+    tertiaryTextColor: '#cbd5e1',
+    tertiaryBorderColor: '#334155',
+    noteBkgColor: '#161d2d',
+    noteTextColor: '#f8fafc',
+    noteBorderColor: '#38bdf8',
+    actorBkg: '#1e2638',
+    actorTextColor: '#f8fafc',
+    actorLineColor: '#60a5fa',
+    signalColor: '#60a5fa',
+    signalTextColor: '#f8fafc',
+    labelBoxBkgColor: '#1e2638',
+    labelTextColor: '#f8fafc',
+    edgeLabelBackground: '#0d111a',
+    clusterBkg: 'rgba(20, 27, 45, 0.65)',
+    clusterBorder: '#2e3d5e',
+    titleColor: '#38bdf8',
+    nodeBorder: '#38bdf8',
+    nodeTextColor: '#f8fafc',
+    mainBkg: '#161d2d'
+  }
 });
 
 interface MermaidChartProps {

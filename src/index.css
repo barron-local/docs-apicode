@@ -594,16 +594,17 @@ body {
   background: rgba(255, 255, 255, 0.02);
 }
 
-/* Mermaid Diagrams */
+/* Mermaid Diagrams (Dark Theme Optimized) */
 .mermaid-wrapper {
-  background: #121622;
+  background: #0d111a;
   border: 1px solid #1e2638;
-  border-radius: 10px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 28px 20px;
   overflow-x: auto;
-  margin: 16px 0;
+  margin: 20px 0;
   display: flex;
   justify-content: center;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .diagram-header {
@@ -615,10 +616,57 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #a78bfa;
-  background: rgba(167, 139, 250, 0.1);
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   padding: 3px 8px;
   border-radius: 4px;
+}
+
+/* Ensure all text inside Mermaid SVG is sharp, white/light slate and readable in Dark Mode */
+.mermaid-container svg text {
+  fill: #f1f5f9 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+}
+
+.mermaid-container svg .cluster rect {
+  fill: rgba(20, 27, 45, 0.7) !important;
+  stroke: #2e3d5e !important;
+  stroke-width: 1.5px !important;
+  rx: 8px !important;
+}
+
+.mermaid-container svg .node rect,
+.mermaid-container svg .node circle,
+.mermaid-container svg .node polygon,
+.mermaid-container svg .node path {
+  fill: #161e30 !important;
+  stroke: #38bdf8 !important;
+  stroke-width: 1.5px !important;
+}
+
+.mermaid-container svg .edgeLabel {
+  background-color: #0d111a !important;
+  color: #93c5fd !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+}
+
+.mermaid-container svg .edgeLabel rect {
+  fill: #0d111a !important;
+  opacity: 0.85 !important;
+}
+
+.mermaid-container svg .flowchart-link {
+  stroke: #60a5fa !important;
+  stroke-width: 1.75px !important;
+}
+
+.mermaid-container svg .marker {
+  fill: #60a5fa !important;
+  stroke: #60a5fa !important;
 }
 
 .mermaid-error {
