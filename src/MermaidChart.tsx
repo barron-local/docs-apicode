@@ -1,42 +1,38 @@
 import { useEffect, useRef } from 'react';
 import mermaid from 'mermaid';
 
-// Initialize Mermaid with a rich custom Dark Theme matching our Slate & Indigo aesthetic
+// Initialize Mermaid with clean, battle-tested native 'dark' theme
 mermaid.initialize({
   startOnLoad: false,
-  theme: 'base',
+  theme: 'dark',
   securityLevel: 'loose',
-  fontFamily: "'JetBrains Mono', 'Prompt', 'Inter', monospace",
+  fontFamily: "'Prompt', 'Inter', system-ui, sans-serif",
+  fontSize: 14,
+  flowchart: {
+    useMaxWidth: true,
+    htmlLabels: true,
+    curve: 'basis'
+  },
   themeVariables: {
     darkMode: true,
-    background: '#0d111a',
-    primaryColor: '#1e2638',
+    background: 'transparent',
+    primaryColor: '#1e293b',
     primaryTextColor: '#f8fafc',
     primaryBorderColor: '#38bdf8',
     lineColor: '#60a5fa',
-    secondaryColor: '#1a2234',
-    secondaryTextColor: '#e2e8f0',
-    secondaryBorderColor: '#6366f1',
-    tertiaryColor: '#141a28',
-    tertiaryTextColor: '#cbd5e1',
-    tertiaryBorderColor: '#334155',
-    noteBkgColor: '#161d2d',
+    secondaryColor: '#1e293b',
+    secondaryTextColor: '#f8fafc',
+    secondaryBorderColor: '#818cf8',
+    tertiaryColor: '#0f172a',
+    tertiaryTextColor: '#f8fafc',
+    tertiaryBorderColor: '#475569',
+    noteBkgColor: '#1e293b',
     noteTextColor: '#f8fafc',
     noteBorderColor: '#38bdf8',
-    actorBkg: '#1e2638',
-    actorTextColor: '#f8fafc',
-    actorLineColor: '#60a5fa',
-    signalColor: '#60a5fa',
-    signalTextColor: '#f8fafc',
-    labelBoxBkgColor: '#1e2638',
-    labelTextColor: '#f8fafc',
-    edgeLabelBackground: '#0d111a',
-    clusterBkg: 'rgba(20, 27, 45, 0.65)',
-    clusterBorder: '#2e3d5e',
-    titleColor: '#38bdf8',
-    nodeBorder: '#38bdf8',
-    nodeTextColor: '#f8fafc',
-    mainBkg: '#161d2d'
+    edgeLabelBackground: '#0b0f19',
+    clusterBkg: 'rgba(15, 23, 42, 0.75)',
+    clusterBorder: '#334155',
+    titleColor: '#38bdf8'
   }
 });
 

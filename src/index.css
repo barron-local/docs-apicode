@@ -596,15 +596,15 @@ body {
 
 /* Mermaid Diagrams (Dark Theme Optimized) */
 .mermaid-wrapper {
-  background: #0d111a;
-  border: 1px solid #1e2638;
+  background: #0b0f19;
+  border: 1px solid #1e293b;
   border-radius: 12px;
-  padding: 28px 20px;
+  padding: 32px 24px;
   overflow-x: auto;
-  margin: 20px 0;
+  margin: 24px 0;
   display: flex;
   justify-content: center;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .diagram-header {
@@ -623,40 +623,50 @@ body {
   border-radius: 4px;
 }
 
-/* Ensure all text inside Mermaid SVG is sharp, white/light slate and readable in Dark Mode */
-.mermaid-container svg text {
-  fill: #f1f5f9 !important;
+/* Fix text visibility across all Mermaid HTML labels and SVG texts */
+.mermaid-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.mermaid-container svg {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* Ensure all text inside nodes, clusters, and labels are bright and sharp */
+.mermaid-container svg text,
+.mermaid-container svg .nodeLabel,
+.mermaid-container svg .edgeLabel,
+.mermaid-container svg .cluster-label,
+.mermaid-container svg span,
+.mermaid-container svg p,
+.mermaid-container svg div {
+  color: #f8fafc !important;
+  fill: #f8fafc !important;
   font-family: var(--font-sans) !important;
-  font-size: 13px !important;
+  font-size: 13.5px !important;
+  line-height: 1.4 !important;
 }
 
-.mermaid-container svg .cluster rect {
-  fill: rgba(20, 27, 45, 0.7) !important;
-  stroke: #2e3d5e !important;
-  stroke-width: 1.5px !important;
-  rx: 8px !important;
-}
-
-.mermaid-container svg .node rect,
-.mermaid-container svg .node circle,
-.mermaid-container svg .node polygon,
-.mermaid-container svg .node path {
-  fill: #161e30 !important;
-  stroke: #38bdf8 !important;
-  stroke-width: 1.5px !important;
-}
-
+/* Edge labels (the text on relationship arrows) */
 .mermaid-container svg .edgeLabel {
-  background-color: #0d111a !important;
-  color: #93c5fd !important;
-  padding: 2px 6px !important;
+  background-color: #0b0f19 !important;
+  color: #7dd3fc !important;
+  fill: #7dd3fc !important;
   border-radius: 4px !important;
-  font-size: 12px !important;
+}
+
+.mermaid-container svg .edgeLabel span {
+  color: #7dd3fc !important;
 }
 
 .mermaid-container svg .edgeLabel rect {
-  fill: #0d111a !important;
-  opacity: 0.85 !important;
+  fill: #0b0f19 !important;
+  opacity: 0.9 !important;
 }
 
 .mermaid-container svg .flowchart-link {
